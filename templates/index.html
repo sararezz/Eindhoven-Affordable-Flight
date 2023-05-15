@@ -1,0 +1,22 @@
+{% extends 'bootstrap/base.html' %}
+
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block title %}Flight Finder{% endblock %}
+
+{% block content %}
+<div class="jumbotron text-center">
+    <div class="container">
+  <h1 class="display-4">✈️️ Affordable Flight Finder 💰</h1>
+  <p class="lead">Want to travel with your own defined price?</p>
+  <hr class="my-4">
+  <p>You've found the right place! Pick your favorite cities and specify your own price we'll find the best offer for you.</p>
+  <a class="btn btn-warning btn-lg" href="{{url_for('flights')}}" role="button">Show Me!</a>
+</div>
+    </div>
+
+
+{% endblock %}

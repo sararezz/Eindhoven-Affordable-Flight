@@ -1,0 +1,54 @@
+{% extends 'bootstrap/base.html' %}
+{% block styles %}
+{{ super() }}
+<link rel="stylesheet" href="{{url_for('static', filename='css/styles.css')}}">
+{% endblock %}
+
+{% block title %}your cities{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12">
+
+      <h1>⛱ Your Favorite Cities 🏝</h1>
+
+<table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th scope="col">From</th>
+          <th scope="col">To</th>
+          <th scope="col">Departure</th>
+          <th scope="col">Return</th>
+          <th scope="col">Price</th>
+          <th scope="col">result</th>
+        </tr>
+      </thead>
+      <tbody>
+
+          {% for each_flight in flights %}
+            <tr>
+            {% for element in each_flight %}
+                {% if 'http' in element%}
+                    <td><a href="{{element}}">flight link</a></td>
+                {%else%}
+                    <td>{{element}}</td>
+                {%endif%}
+            {% endfor %}
+
+            </tr>
+          {% endfor %}
+
+      </tbody>
+    </table>
+<div class="add-button">
+    <a class="btn btn-success btn-lg" href="{{url_for('add_flight')}}" role="button">Add a new one!</a>
+</div>
+
+</div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
